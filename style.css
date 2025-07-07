@@ -1,0 +1,334 @@
+/* Reset e fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* NAVBAR */
+.header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.header nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+}
+
+.header nav button {
+    margin-left: 10px;
+    padding: 8px 16px;
+    background-color: #7e22ce;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.header nav button:hover {
+    background-color: #5b16a5;
+}
+
+/* TÍTULO PRINCIPAL */
+section h1 {
+    font-size: 36px;
+    text-align: center;
+    margin-top: 40px;
+    color: #222;
+    font-family: 'Orbitron', sans-serif;
+}
+
+section p {
+    text-align: center;
+    margin: 10px auto 20px;
+    font-size: 18px;
+    color: #555;
+    max-width: 600px;
+}
+
+section button {
+    display: block;
+    margin: 0 auto 40px;
+    padding: 12px 24px;
+    background-color: #7e22ce;
+    border: none;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+section img {
+    display: block;
+    max-width: 30%;
+    margin: 20px auto;
+    border-radius: 16px;
+}
+
+/* CURSOS */
+h1, h2 {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 28px;
+    color: #111;
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+    gap: 32px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.box-cursos {
+    background-color: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.box-cursos:hover {
+    transform: translateY(-5px);
+}
+
+.box-cursos img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.box-cursos h4 {
+    margin-top: 16px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+}
+
+.box-cursos h5 {
+    font-weight: 400;
+    font-size: 14px;
+    color: #666;
+    margin: 8px 0 16px;
+}
+
+.box-cursos button {
+    background-color: #7e22ce;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.box-cursos button:hover {
+    background-color: #5e1ca8;
+}
+
+#depoimentos {
+  background-color: #f9f9f9;
+  padding: 60px 20px;
+  text-align: center;
+
+  display: flex;           /* deixa container flexível */
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 30px;               /* espaço entre os cards */
+  flex-wrap: nowrap;       /* **NÃO** permite quebra de linha */
+  overflow-x: auto;        /* permite rolar horizontal se não couber */
+}
+
+#depoimentos h2 {
+  width: 100%;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #111;
+  font-weight: bold;
+  flex-basis: 100%; /* título ocupa linha inteira */
+}
+
+.depoimento-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 320px;            /* largura fixa para cada card */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;          /* não encolhe */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.depoimento-card:hover {
+  transform: translateY(-5px);
+}
+
+.depoimento-card p {
+  font-size: 17px;
+  color: #333;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.depoimento-card h6 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #7e22ce;
+  margin-top: auto;
+}
+
+/* LOGIN */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #f1f5f9;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+.login-container p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+.social-login {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.social-login button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.social-login img {
+    width: 28px;
+    height: 28px;
+}
+
+/* Botão login */
+.login-btn {
+    background-color: #7e22ce;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* ========================= */
+/* HEADER VISUAL COM MOCKUP */
+/* ========================= */
+
+.hero-header {
+    position: relative;
+    background: url('https://i.imgur.com/9lmv4Yh.png') no-repeat center center/cover;
+    height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar-hero {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-white {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn-blue {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.hero-content {
+    margin-top: 80px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #eee;
+}
