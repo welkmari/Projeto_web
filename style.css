@@ -1,4 +1,3 @@
-/* Reset e fonte */
 * {
     margin: 0;
     padding: 0;
@@ -7,48 +6,120 @@
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background: #f9f9f9;
-    color: #333;
+    background: #121212;
+    color: white;
+    overflow-x: hidden;
 }
 
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* ESCURECE a imagem */
+    z-index: -1;
+}
 /* NAVBAR */
-.header nav {
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    padding: 20px 50px;
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
 }
 
-.header nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 28px;
+    font-weight: bold;
 }
 
-.header nav button {
-    margin-left: 10px;
-    padding: 8px 16px;
-    background-color: #7e22ce;
+nav a {
     color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
+    text-decoration: none;
+    margin-left: 30px;
+    font-weight: bold;
+    transition: 0.3s;
 }
 
-.header nav button:hover {
-    background-color: #5b16a5;
+nav a:hover {
+    color: #15008b;
 }
+
+/* HERO SECTION */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 120px 80px;
+    min-height: 100vh;
+    clip-path: ellipse(100% 100% at 50% 0%);
+}
+
+.hero-texto {
+    max-width: 50%;
+}
+
+.hero-texto h1 {
+    font-size: 60px;
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.hero-texto p {
+    font-size: 18px;
+    margin: 20px 0;
+    color: #ddd;
+}
+
+.cta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cta span {
+    background-color: white;
+    color: black;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.btn {
+    background-color: #15008b;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #120366;
+}
+
+.hero  {
+    background-image: url("https://www.marketingdirecto.com/wp-content/uploads/2025/02/Inteligencia-Artificial.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 
 /* TÍTULO PRINCIPAL */
 section h1 {
     font-size: 36px;
     text-align: center;
     margin-top: 40px;
-    color: #222;
+    color: #ffffff;
     font-family: 'Orbitron', sans-serif;
 }
 
@@ -64,7 +135,7 @@ section button {
     display: block;
     margin: 0 auto 40px;
     padding: 12px 24px;
-    background-color: #7e22ce;
+    background-color: #15008b;
     border: none;
     color: white;
     border-radius: 8px;
@@ -131,7 +202,7 @@ h1, h2 {
 }
 
 .box-cursos button {
-    background-color: #7e22ce;
+    background-color:#15008b;
     color: white;
     border: none;
     padding: 10px 20px;
@@ -193,7 +264,7 @@ h1, h2 {
 .depoimento-card h6 {
   font-size: 14px;
   font-weight: 600;
-  color: #7e22ce;
+  color: #15008b;
   margin-top: auto;
 }
 
@@ -250,7 +321,7 @@ h1, h2 {
 
 /* Botão login */
 .login-btn {
-    background-color: #7e22ce;
+    background-color:#15008b;
     color: white;
     border: none;
     padding: 12px 20px;
