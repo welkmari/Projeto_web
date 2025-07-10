@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,‑initial‑scale=1.0">
+  <title>Página de Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="login-form">
+      <div class="input-group">
+        <input type="text" id="username" placeholder="Usuário" required>
+      </div>
+      <div class="input-group">
+        <input type="password" id="password" placeholder="Senha" required>
+        <span class="toggle-pass" onclick="togglePassword()">Mostrar</span>
+      </div>
+      <button type="submit">Entrar</button>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
