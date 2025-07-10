@@ -21,7 +21,7 @@ body::before {
     background: rgba(0, 0, 0, 0.6); /* ESCURECE a imagem */
     z-index: -1;
 }
-/* NAVBAR */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -51,7 +51,6 @@ nav a:hover {
     color: #15008b;
 }
 
-/* HERO SECTION */
 .hero {
     display: flex;
     align-items: center;
@@ -63,6 +62,8 @@ nav a:hover {
 
 .hero-texto {
     max-width: 50%;
+    animation: fadeInSlideUp 1s ease forwards;
+    opacity: 0;
 }
 
 .hero-texto h1 {
@@ -98,23 +99,33 @@ nav a:hover {
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    transition: 0.3s, transform 0.3s ease;
+    transform-origin: center;
 }
 
 .btn:hover {
     background-color: #120366;
+    animation: grow 0.3s forwards;
 }
 
-.hero  {
-    background-image: url("https://www.marketingdirecto.com/wp-content/uploads/2025/02/Inteligencia-Artificial.jpg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px;
+  background-image: url("https://www.marketingdirecto.com/wp-content/uploads/2025/02/Inteligencia-Artificial.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-wrap: wrap;
 }
 
+.hero-robot img {
+  max-width: 480px;
+  animation: flutuarGirando 4s ease-in-out infinite;
+  transform-origin: center; /* gira em torno do próprio centro */
+}
 
-
-/* TÍTULO PRINCIPAL */
 section h1 {
     font-size: 36px;
     text-align: center;
@@ -141,6 +152,13 @@ section button {
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    transition: background 0.3s, transform 0.3s ease;
+    transform-origin: center;
+}
+
+section button:hover {
+    background-color: #120366;
+    animation: grow 0.3s forwards;
 }
 
 section img {
@@ -151,11 +169,461 @@ section img {
 }
 
 /* CURSOS */
+.carousel-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto 80px;
+}
+
+.carousel-track-container {
+  overflow: hidden;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.carousel-slide {
+  min-width: 320px; /* largura igual dos cards */
+  margin-right: 24px;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #15008b;
+  border: none;
+  color: white;
+  padding: 12px 16px;
+  font-size: 24px;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 20;
+  transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+  background-color: #120366;
+}
+
+.prev-btn {
+  left: -40px;
+}
+
+.next-btn {
+  right: -40px;
+}
+
+/* Responsividade: menos slides visíveis em telas menores */
+@media (max-width: 1024px) {
+  .carousel-slide {
+    min-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-slide {
+    min-width: 220px;
+  }
+  .prev-btn, .next-btn {
+    display: none; /* esconde botões para touch */
+  }
+}
+
+
+#depoimentos {
+  background-color: #000000;
+  padding: 60px 20px;
+  text-align: center;
+
+  display: flex;           /* deixa container flexível */
+  justify-content: center; /* centraliza horizontalmente */
+  gap: 30px;               /* espaço entre os cards */
+  flex-wrap: nowrap;       /* **NÃO** permite quebra de linha */
+  overflow-x: auto;        /* permite rolar horizontal se não couber */
+}
+
+#depoimentos h2 {
+  width: 100%;
+  font-size: 32px;
+  margin-bottom: 40px;
+  color: #020202;
+  font-weight: bold;
+  flex-basis: 100%; /* título ocupa linha inteira */
+}
+
+.depoimento-card {
+  background:  #0a0a0a;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 320px;            /* largura fixa para cada card */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+  flex-shrink: 0;          /* não encolhe */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.depoimento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(21, 0, 139, 0.5);
+}
+
+.depoimento-card p {
+  font-size: 17px;
+  color: #ffffff;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.depoimento-card h6 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #15008b;
+  margin-top: auto;
+}
+
+.login-section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.login-title {
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.login-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.robot-img img {
+  max-width: 800px;
+  height: auto;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
+.login-container {
+  background-color: #111;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 320px;
+  text-align: center;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.social-login {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 15px 0;
+}
+
+.social-login button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.social-login img {
+  height: 24px;
+  width: 24px;
+}
+
+.login-btn {
+  background-color: #4e5bff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.3s ease;
+  transform-origin: center;
+}
+
+.login-btn:hover {
+  background-color: #3a45cc;
+  animation: grow 0.3s forwards;
+}
+
+.hero-header {
+    position: relative;
+    background: url('https://i.imgur.com/9lmv4Yh.png') no-repeat center center/cover;
+    height: 500px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.navbar-hero {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: fadeInSlideUp 0.5s ease forwards;
+}
+
+.nav-links a:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.nav-links a:nth-child(2) {
+    animation-delay: 0.45s;
+}
+
+.nav-links a:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.nav-links a:nth-child(4) {
+    animation-delay: 0.75s;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-white {
+    background: white;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.btn-white:hover {
+    animation: grow 0.3s forwards;
+}
+
+.btn-blue {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.btn-blue:hover {
+    animation: grow 0.3s forwards;
+}
+
+.hero-content {
+    margin-top: 80px;
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 18px;
+    color: #eee;
+}
+
+.encontrar {
+  background-color: #000000;
+  padding: 60px 20px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.encontrar-card {
+  background: #0a0a0a;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 320px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.encontrar-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(21, 0, 139, 0.5);
+}
+
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 60px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  opacity: 0;
+  animation: fadeIn 2s ease forwards;
+  animation-delay: 1.2s;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo h2 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-links h4,
+.footer-contato h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-contato p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ffffff;
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
+}
+
+/* --- Animações --- */
+
+@keyframes flutuarGirando {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(10deg);
+  }
+}
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 h1, h2 {
     text-align: center;
     margin-top: 60px;
     font-size: 28px;
-    color: #111;
+    color: #ffffff;
+}
+
+.title{
+    font-family: 'Orbitron', sans-serif;
 }
 
 .cursos-grid {
@@ -168,7 +636,7 @@ h1, h2 {
 }
 
 .box-cursos {
-    background-color: #fff;
+    background-color: #000000;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
     padding: 20px;
@@ -191,7 +659,7 @@ h1, h2 {
     margin-top: 16px;
     font-size: 18px;
     font-weight: 700;
-    color: #111;
+    color: #ffffff;
 }
 
 .box-cursos h5 {
@@ -213,11 +681,11 @@ h1, h2 {
 }
 
 .box-cursos button:hover {
-    background-color: #5e1ca8;
+    background-color: #120366;
 }
 
 #depoimentos {
-  background-color: #f9f9f9;
+  background-color: #000000;
   padding: 60px 20px;
   text-align: center;
 
@@ -232,13 +700,13 @@ h1, h2 {
   width: 100%;
   font-size: 32px;
   margin-bottom: 40px;
-  color: #111;
+  color: #020202;
   font-weight: bold;
   flex-basis: 100%; /* título ocupa linha inteira */
 }
 
 .depoimento-card {
-  background: #fff;
+  background:  #0a0a0a;
   border-radius: 16px;
   padding: 30px 40px;
   width: 320px;            /* largura fixa para cada card */
@@ -256,7 +724,7 @@ h1, h2 {
 
 .depoimento-card p {
   font-size: 17px;
-  color: #333;
+  color: #ffffff;
   line-height: 1.6;
   margin-bottom: 18px;
 }
@@ -268,73 +736,96 @@ h1, h2 {
   margin-top: auto;
 }
 
-/* LOGIN */
-.login {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 60px 20px;
-    background-color: #f1f5f9;
+
+.login-section {
+  padding: 60px 20px;
+  text-align: center;
 }
+
+.login-title {
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: white;
+}
+
+.login-flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+.robot-img img {
+  max-width: 800px;
+  height: auto;
+  animation: flutuar 3s ease-in-out infinite;
+}
+
 
 .login-container {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
-}
-
-.login-container p {
-    margin-bottom: 20px;
-    font-size: 16px;
-    color: #333;
+  background-color: #111;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  color: white;
+  width: 320px;
+  text-align: center;
 }
 
 .login-container input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
 }
 
 .social-login {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 15px 0;
 }
 
 .social-login button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .social-login img {
-    width: 28px;
-    height: 28px;
+  height: 24px;
+  width: 24px;
 }
 
-/* Botão login */
 .login-btn {
-    background-color:#15008b;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
+  background-color: #4e5bff;
+  color: white;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
 }
 
-/* ========================= */
-/* HEADER VISUAL COM MOCKUP */
-/* ========================= */
-
+.login-btn:hover {
+  background-color: #3a45cc;
+}
 .hero-header {
     position: relative;
     background: url('https://i.imgur.com/9lmv4Yh.png') no-repeat center center/cover;
@@ -402,4 +893,100 @@ h1, h2 {
 .hero-content p {
     font-size: 18px;
     color: #eee;
+}
+
+.encontrar {
+  background-color: #000000;
+  padding: 60px 20px;
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.encontrar-card {
+  background: #0a0a0a;
+  border-radius: 16px;
+  padding: 30px 40px;
+  width: 320px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease-in-out;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.encontrar-card:hover {
+  transform: translateY(-5px);
+}
+
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 60px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo h2 {
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-links h4,
+.footer-contato h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-links a {
+  color: #bbb;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-contato p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #bbb;
+}
+
+.footer-bottom {
+  border-top: 1px solid #ffffff;
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 14px;
+  color: #ffffff;
 }
